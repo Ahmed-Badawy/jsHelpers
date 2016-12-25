@@ -2,21 +2,28 @@
 <html>
 <head>
 	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			direction:rtl;
+		}
+	</style>
 </head>
 <body>
 
-
+<p>hello world</p>
+<p>اهلا بكل انحاء العالم</p>
+<p id='item1'></p>
+<p class='item2'></p>
+<p class='item2 man'></p>
 
 
 
 <script type="text/javascript" src='jsHelpers.js'></script>
 <script type="text/javascript">
 myArray = [{id:1,name:"ahmed"},{id:2},{id:3},{id:3},{id:1}];
-
-console.table(myArray);
-
-
-
+simple_array = ["one","two","three","four"];
+	
 	console.log("in_array" 										, jsHelpers.in_array(1,[1,2,3]));
 	console.log("in_adv_array" 						, jsHelpers.in_adv_array({id:1},myArray,'id'));
 
@@ -28,6 +35,60 @@ console.table(myArray);
 
 
 	console.log("fuzzysearch" 		, jsHelpers.fuzzysearch('ho','Hello','ig'));
+
+	console.log('is_empty', jsHelpers.is_empty({id:1}) );
+	console.log('clean_array', jsHelpers.clean_array([15,undefined,false,0,1,NaN]) );
+
+
+
+	jsHelpers.get('#item1').innerHTML += jsHelpers.timeAgo("2016-012-24 22:50:17",'ar')+"<br>";
+	jsHelpers.get('#item1').innerHTML += jsHelpers.timeAgo("2011-12-17T09:24:17Z",'ar')+"<br>";
+	jsHelpers.get('#item1').innerHTML += jsHelpers.timeAgo("December 17, 2012",'ar')+"<br>";
+	jsHelpers.get('#item1').innerHTML += jsHelpers.timeAgo("1375218564",'ar')+"<br>";
+
+
+
+console.log("--------------------------For Loops--------------------------");
+	for(index in simple_array) console.log(index);
+	for(item of simple_array) console.log(item);
+	simple_array.forEach(val=>console.log(val));
+
+	for(item of jsHelpers.get('.item2')) item.classList.toggle('man'); //(toggle, add, remove)
+console.log("----------------------------------------------------");
+
+
+	console.log("is it mobile phone ",jsHelpers.mobilecheck());
+	console.log("is it tablet phone ",jsHelpers.mobileAndTabletcheck());
+	console.log('Detect Browser: ',jsHelpers.detect_browser());
+
+/**********************************************************************/	
+
+
+	console.log("uc_words: ", jsHelpers.uc_words("hello world"));
+/**********************************************************************/	
+
+
+
+
+
+	document.addEventListener('keydown', evt=>{    
+		console.log(jsHelpers.keyStrokeName(evt));
+	},false);
+
+
+
+	// let constrains = {
+	// 	username: { main:["required"], len_max:10, len_min:3, len_is:6 },
+	// 	email: { main:['required','email'] },
+	// 	size: { inside: ['small','medium','large'] },
+	// 	password: { main:['required'], len_is:6 },
+	// 	password_conf : { main:['required'], same: 'password' },
+	// 	special: { match:(/main/ig) }
+	// }
+	// validate();
+
+
+
 
 </script>
 
