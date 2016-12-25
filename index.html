@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+
+
+
+<script type="text/javascript" src='jsHelpers.js'></script>
+<script type="text/javascript">
+myArray = [{id:1,name:"ahmed"},{id:2},{id:3},{id:3},{id:1}];
+
+console.table(myArray);
+
+
+
+	console.log("in_array" 										, jsHelpers.in_array(1,[1,2,3]));
+	console.log("in_adv_array" 						, jsHelpers.in_adv_array({id:1},myArray,'id'));
+
+	console.log("array_uniq" 								, jsHelpers.array_uniq([1,2,3,3,3,3]));
+	console.log("array_adv_uniq" 				, jsHelpers.array_adv_uniq(myArray,'id'));
+
+	console.log("array_remove" 						, jsHelpers.array_remove(1,[1,2,3]));
+	console.log("array_adv_remove" 		, jsHelpers.array_adv_remove({id:1},'id',myArray));
+
+
+	console.log("fuzzysearch" 		, jsHelpers.fuzzysearch('ho','Hello','ig'));
+
+</script>
+
+</body>
+</html>
