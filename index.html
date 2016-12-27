@@ -17,13 +17,17 @@
 <p class='item2'></p>
 <p class='item2 man'></p>
 
+<a id='download_file' href='' download='1.json'>Download The Generated File</a>
+
 
 
 <script type="text/javascript" src='jsHelpers.js'></script>
 <script type="text/javascript">
+
 myArray = [{id:1,name:"ahmed"},{id:2},{id:3},{id:3},{id:1}];
 simple_array = ["one","two","three","four"];
 	
+
 	console.log("in_array" 										, jsHelpers.in_array(1,[1,2,3]));
 	console.log("in_adv_array" 						, jsHelpers.in_adv_array({id:1},myArray,'id'));
 
@@ -39,12 +43,29 @@ simple_array = ["one","two","three","four"];
 	console.log('is_empty', jsHelpers.is_empty({id:1}) );
 	console.log('clean_array', jsHelpers.clean_array([15,undefined,false,0,1,NaN]) );
 
+console.log("----------------------------------------------------");
 
 
+
+
+/**********************************************************************/
 	jsHelpers.get('#item1').innerHTML += jsHelpers.timeAgo("2016-012-24 22:50:17",'ar')+"<br>";
 	jsHelpers.get('#item1').innerHTML += jsHelpers.timeAgo("2011-12-17T09:24:17Z",'ar')+"<br>";
 	jsHelpers.get('#item1').innerHTML += jsHelpers.timeAgo("December 17, 2012",'ar')+"<br>";
 	jsHelpers.get('#item1').innerHTML += jsHelpers.timeAgo("1375218564",'ar')+"<br>";
+
+/**********************************************************************/
+
+
+
+//notify user
+	jsHelpers.notifyUser("My Header","somethign went wrong, please check what is the error");
+//download text generated file
+	jsHelpers.get("#download_file").href = jsHelpers.makeTextFile("Hello World",'text/json');
+//js cookie
+	jsHelpers.set_cookie('username','Ahmed Badawy');
+	console.log("Cookies Log", jsHelpers.get_cookie('all'));
+
 
 
 
@@ -67,13 +88,7 @@ console.log("----------------------------------------------------");
 	console.log("uc_words: ", jsHelpers.uc_words("hello world"));
 /**********************************************************************/	
 
-
-
-
-
-	document.addEventListener('keydown', evt=>{    
-		console.log(jsHelpers.keyStrokeName(evt));
-	},false);
+	document.addEventListener('keydown', evt=>console.log(jsHelpers.keyStrokeName(evt)), false);
 
 
 
