@@ -5,16 +5,10 @@ if(!DEV){
 }
 
 let textFile;
-
-
 let jsHelpers = {
 
-    uc_words(str){
-        return (str + '').replace(/^([a-z\u00E0-\u00FC])|\s+([a-z\u00E0-\u00FC])/g, $1=>$1.toUpperCase())
-    },
 
-
-/*this will return clean the array from empty values:-*/
+  /*this will return clean the array from empty values:-*/
     clean_array(array){
         if(Array.isArray(array)){
             array = array.slice();
@@ -83,84 +77,9 @@ let jsHelpers = {
         array = array.filter(item=>item[attribute]!=elm[attribute]);
         return array;
     },
-
-
-    fuzzysearch(pattern,str,flags){
-        pattern = pattern.split("").reduce(function(a,b){ return a+".*"+b; });
-        return (new RegExp(pattern,flags)).test(str);
+      uc_words(str){
+        return (str + '').replace(/^([a-z\u00E0-\u00FC])|\s+([a-z\u00E0-\u00FC])/g, $1=>$1.toUpperCase())
     },
-
-
-    stringify_filter(new_array, text, according, eq_filter){
-        new_array = new_array;
-        if(text.trim()=="") new_array = new_array.slice();
-        else if(according=="all") new_array = new_array.filter(item=>fuzzysearch(text,JSON.stringify(item)));
-        else{ 
-                if(eq_filter) new_array = new_array.filter(item=>(text==item[according]));
-                else new_array = new_array.filter(item=>fuzzysearch(text,JSON.stringify(item[according])));
-        }
-        return new_array;
-    },
-
-    sorting_filter(new_array,sort_by,sort_according){
-        new_arra = new_array.sort((a,b)=>{ return (b[sort_by]<a[sort_by]) ? 1 : -1 });
-        new_array = (sort_according=='asc') ? new_array : new_array.reverse();
-        return new_array;
-    },    
-
-    advanced_frontend_pagi(new_array,pagi_limit,pagi_offset){
-        this.pages_count = Math.ceil(new_array.length / pagi_limit);
-        console.log(new_array.length, pagi_limit, pagi_offset, this.pages_count);
-        new_array = new_array.slice(pagi_offset,pagi_offset + pagi_limit);
-        return new_array; 
-    },
-
-
-
-
-
-/*detect the pressed key*/
-    keyStrokeName(evt){
-        let unicode=evt.keyCode? evt.keyCode : evt.charCode;
-
-        specialKeys = {
-            8: "backspace", 9: "tab", 13: "return", 16: "shift", 17: "ctrl", 18: "alt", 19: "pause",
-            20: "capslock", 27: "esc", 32: "space", 33: "pageup", 34: "pagedown", 35: "end", 36: "home",
-            37: "left", 38: "up", 39: "right", 40: "down", 45: "insert", 46: "del",
-            96: "0", 97: "1", 98: "2", 99: "3", 100: "4", 101: "5", 102: "6", 103: "7",
-            104: "8", 105: "9", 106: "*", 107: "+", 109: "-", 110: ".", 111 : "/",
-            112: "f1", 113: "f2", 114: "f3", 115: "f4", 116: "f5", 117: "f6", 118: "f7", 119: "f8",
-            120: "f9", 121: "f10", 122: "f11", 123: "f12", 144: "numlock", 145: "scroll", 188: ",", 190: ".",
-            191: "/", 224: "meta"
-        };
-        shiftNums = {
-            "`": "~", "1": "!", "2": "@", "3": "#", "4": "$", "5": "%", "6": "^", "7": "&",
-            "8": "*", "9": "(", "0": ")", "-": "_", "=": "+", ";": ": ", "'": "\"", ",": "<",
-            ".": ">",  "/": "?",  "\\": "|"
-        };
-        if(specialKeys[unicode]) output= specialKeys[unicode];
-        else if(String.fromCharCode(unicode)) output= String.fromCharCode(unicode).toLowerCase();
-        return output;
-    },
-
-
-
-
-/*--------------------------------------------------------------
-Selectors
---------------------------------------------------------------*/
-    get(str, parent=document){
-        if(/^\#/ig.test(str))return parent.getElementById(str.replace('#',''));
-        else if(/^\./ig.test(str))return parent.getElementsByClassName(str.replace('.',''));
-        else return parent.getElementsByTagName(str);
-    },
-    q(query){ //returns the first item that matches the query. EX: 
-                    // document.querySelector("div.user-panel.main input[name=login]"); 
-        return document.querySelector(query);
-    }
-/**********************************************************************/
-
-
 
 
     getParameterByName(name){
@@ -199,9 +118,7 @@ Selectors
         return textFile;
     },
 
-
-
-/*--------------------------------------------------------------
+  /*--------------------------------------------------------------
 Time Ago
 --------------------------------------------------------------*/
 /*jsHelpers.timeAgo("2011-12-17T09:24:17Z",'ar')*/
@@ -274,6 +191,104 @@ Time Ago
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    fuzzysearch(pattern,str,flags){
+        pattern = pattern.split("").reduce(function(a,b){ return a+".*"+b; });
+        return (new RegExp(pattern,flags)).test(str);
+    },
+
+
+    stringify_filter(new_array, text, according, eq_filter){
+        new_array = new_array;
+        if(text.trim()=="") new_array = new_array.slice();
+        else if(according=="all") new_array = new_array.filter(item=>fuzzysearch(text,JSON.stringify(item)));
+        else{ 
+                if(eq_filter) new_array = new_array.filter(item=>(text==item[according]));
+                else new_array = new_array.filter(item=>fuzzysearch(text,JSON.stringify(item[according])));
+        }
+        return new_array;
+    },
+
+    sorting_filter(new_array,sort_by,sort_according){
+        new_arra = new_array.sort((a,b)=>{ return (b[sort_by]<a[sort_by]) ? 1 : -1 });
+        new_array = (sort_according=='asc') ? new_array : new_array.reverse();
+        return new_array;
+    },    
+
+    advanced_frontend_pagi(new_array,pagi_limit,pagi_offset){
+        this.pages_count = Math.ceil(new_array.length / pagi_limit);
+        console.log(new_array.length, pagi_limit, pagi_offset, this.pages_count);
+        new_array = new_array.slice(pagi_offset,pagi_offset + pagi_limit);
+        return new_array; 
+    },
+  
+
+
+/*detect the pressed key*/
+    keyStrokeName(evt){
+        let output = [];
+
+        // console.log('shift', evt.shiftKey);
+        // console.log('ctrl', evt.ctrlKey);
+        // console.log('alt', evt.altKey);        
+        if(evt.shiftKey)  output.push('shift');
+        if(evt.ctrlKey)   output.push('ctrl');
+        if(evt.altKey)    output.push('alt');
+
+        let unicode=evt.keyCode? evt.keyCode : evt.charCode;
+        specialKeys = {
+            8: "backspace", 9: "tab", 13: "return", 16: "shift", 17: "ctrl", 18: "alt", 19: "pause",
+            20: "capslock", 27: "esc", 32: "space", 33: "pageup", 34: "pagedown", 35: "end", 36: "home",
+            37: "left", 38: "up", 39: "right", 40: "down", 45: "insert", 46: "del",
+            96: "0", 97: "1", 98: "2", 99: "3", 100: "4", 101: "5", 102: "6", 103: "7",
+            104: "8", 105: "9", 106: "*", 107: "+", 109: "-", 110: ".", 111 : "/",
+            112: "f1", 113: "f2", 114: "f3", 115: "f4", 116: "f5", 117: "f6", 118: "f7", 119: "f8",
+            120: "f9", 121: "f10", 122: "f11", 123: "f12", 144: "numlock", 145: "scroll", 188: ",", 190: ".",
+            191: "/", 224: "meta"
+        };
+        shiftNums = {
+            "`": "~", "1": "!", "2": "@", "3": "#", "4": "$", "5": "%", "6": "^", "7": "&",
+            "8": "*", "9": "(", "0": ")", "-": "_", "=": "+", ";": ": ", "'": "\"", ",": "<",
+            ".": ">",  "/": "?",  "\\": "|"
+        };
+        if(specialKeys[unicode]) output.push(specialKeys[unicode]);
+        else if(String.fromCharCode(unicode)) output.push( String.fromCharCode(unicode).toLowerCase() );
+        output = this.array_uniq(output);
+        return output.join('+');
+    },
+
+
+  
+/*--------------------------------------------------------------
+Selectors
+--------------------------------------------------------------*/
+    get(str, parent=document){
+        if(/^\#/ig.test(str))return parent.getElementById(str.replace('#',''));
+        else if(/^\./ig.test(str))return parent.getElementsByClassName(str.replace('.',''));
+        else return parent.getElementsByTagName(str);
+    },
+    q(query){ //returns the first item that matches the query. EX: 
+                    // document.querySelector("div.user-panel.main input[name=login]"); 
+        return document.querySelector(query);
+    },
+/**********************************************************************/
+
+  
 /*********************************************************************
 Mobile & Browser Detection
 **********************************************************************/
@@ -309,8 +324,22 @@ Mobile & Browser Detection
     },
 /**********************************************************************/
 
+  
+/*--------------------------------------------------------------
+Selectors
+--------------------------------------------------------------*/
+    get(str, parent=document){
+        if(/^\#/ig.test(str))return parent.getElementById(str.replace('#',''));
+        else if(/^\./ig.test(str))return parent.getElementsByClassName(str.replace('.',''));
+        else return parent.getElementsByTagName(str);
+    },
+    q(query){ //returns the first item that matches the query. EX: 
+                    // document.querySelector("div.user-panel.main input[name=login]"); 
+        return document.querySelector(query);
+    },
+/**********************************************************************/
 
-
+  
 /*********************************************************************
 Cookie Functions
 **********************************************************************/
@@ -350,11 +379,6 @@ Cookie Functions
         }
     }
 /**********************************************************************/
-
-
-
-
-
 
 
 

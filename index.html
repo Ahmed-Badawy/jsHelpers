@@ -24,6 +24,8 @@
 <script type="text/javascript" src='jsHelpers.js'></script>
 <script type="text/javascript">
 
+
+
 myArray = [{id:1,name:"ahmed"},{id:2},{id:3},{id:3},{id:1}];
 simple_array = ["one","two","three","four"];
 	
@@ -41,10 +43,9 @@ simple_array = ["one","two","three","four"];
 	console.log("fuzzysearch" 		, jsHelpers.fuzzysearch('ho','Hello','ig'));
 
 	console.log('is_empty', jsHelpers.is_empty({id:1}) );
-	console.log('clean_array', jsHelpers.clean_array([15,undefined,false,0,1,NaN]) );
+	console.log('clean_array', jsHelpers.clean_array([15,undefined,false,0,1,NaN,'  ',"hello"]) );
 
 console.log("----------------------------------------------------");
-
 
 
 
