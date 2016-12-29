@@ -36,6 +36,13 @@ simple_array = ["one","two","three","four"];
 	console.log("array_uniq" 								, jsHelpers.array_uniq([1,2,3,3,3,3]));
 	console.log("array_adv_uniq" 				, jsHelpers.array_adv_uniq(myArray,'id'));
 
+//lists a value from array of objects:-
+	console.log("array_list_adv" 				, jsHelpers.array_list_adv(myArray,'id'));
+
+//gets (array of objects) from array of object based on where clusters:-
+	console.log("get_where" 									, jsHelpers.get_where(myArray,'name','ahmed',false));//where name is ahmed
+
+
 	console.log("array_remove" 						, jsHelpers.array_remove(1,[1,2,3]));
 	console.log("array_adv_remove" 		, jsHelpers.array_adv_remove({id:1},'id',myArray));
 
@@ -63,9 +70,11 @@ console.log("----------------------------------------------------");
 	jsHelpers.notifyUser("My Header","somethign went wrong, please check what is the error");
 //download text generated file
 	jsHelpers.get("#download_file").href = jsHelpers.makeTextFile("Hello World",'text/json');
+
 //js cookie
 	jsHelpers.set_cookie('username','Ahmed Badawy');
-	console.log("Cookies Log", jsHelpers.get_cookie('all'));
+	jsHelpers.set_cookie('age','22');
+	console.log("Cookies Log", jsHelpers.get_cookie('username'));
 
 
 

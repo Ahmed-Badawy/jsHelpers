@@ -65,6 +65,23 @@ let jsHelpers = {
     },
 
 
+    array_list_adv(array,attribute) {
+        let placeholder_array = [];
+        placeholder_array = array.map(value=>value[attribute]);
+        return this.array_uniq(placeholder_array);
+    },
+
+
+
+    get_where(array, attr, attr_value, first_result=false) {
+        let placeholder_array = [];
+        placeholder_array = array.slice().filter(item=>item[attr]==attr_value);
+        if(placeholder_array.length==0) return false;
+        return (first_result) ? placeholder_array : placeholder_array[0];
+    },
+
+
+
     array_remove(elm,array){
         array = array.slice();
         var index = array.indexOf(elm);
@@ -367,7 +384,7 @@ Cookie Functions
             while (c.charAt(0) == ' ') {c = c.substring(1); }
             if (c.indexOf(name) == 0) {return c.substring(name.length, c.length); }
         }
-        return "";
+        return false;
     },
 
 

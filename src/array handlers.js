@@ -55,6 +55,23 @@
     },
 
 
+    array_list_adv(array, attribute, array_uniq=true) {
+        let placeholder_array = [];
+        placeholder_array = array.map(value=>value[attribute]);
+        return (array_uniq) ? this.array_uniq(placeholder_array) : placeholder_array;
+    },
+
+
+
+    get_where(array, attr, attr_value, first_result=false) {
+        let placeholder_array = [];
+        placeholder_array = array.slice().filter(item=>item[attr]==attr_value);
+        if(placeholder_array.length==0) return false;
+        return (first_result) ? placeholder_array : placeholder_array[0];
+    },
+
+
+
     array_remove(elm,array){
         array = array.slice();
         var index = array.indexOf(elm);
