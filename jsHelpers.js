@@ -376,7 +376,7 @@ Selectors
     },
 /**********************************************************************/
 
-  view_json($obj, $return=false){
+view_json($obj, $return=false){
     if($return) return JSON.stringify($obj,false,2);
     else console.log(JSON.stringify($obj,false,2));
 },

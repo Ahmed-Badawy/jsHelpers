@@ -55,6 +55,13 @@
     },
 
 
+    json_to_str($json_obj){
+        return JSON.stringify($json_obj);
+    },
+    str_to_json($json_string){
+        return JSON.parse($json_string);
+    }
+
 
 
 
