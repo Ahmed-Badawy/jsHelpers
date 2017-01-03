@@ -60,7 +60,7 @@
     },
     str_to_json($json_string){
         return JSON.parse($json_string);
-    }
+    },
 
 
 
