@@ -65,10 +65,10 @@ let jsHelpers = {
     },
 
 
-    array_list_adv(array,attribute) {
+    array_list_adv(array, attribute, array_uniq=true) {
         let placeholder_array = [];
         placeholder_array = array.map(value=>value[attribute]);
-        return this.array_uniq(placeholder_array);
+        return (array_uniq) ? this.array_uniq(placeholder_array) : placeholder_array;
     },
 
 
@@ -134,6 +134,26 @@ let jsHelpers = {
         textFile = window.URL.createObjectURL(data);
         return textFile;
     },
+
+
+
+
+    rand_int(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    },
+    rand_str(length=4){
+        let output='';
+        var S4 = function() {return (((1+Math.random())*0x10)|0).toString(16).substring(1); };
+        for(let i=0;i<length;i++){ output+= S4() }
+        return output;
+    },
+
+
+
+
+
 
   /*--------------------------------------------------------------
 Time Ago
@@ -356,6 +376,14 @@ Selectors
     },
 /**********************************************************************/
 
+  view_json($obj, $return=false){
+    if($return) return JSON.stringify($obj,false,2);
+    else console.log(JSON.stringify($obj,false,2));
+},
+view_csv($obj, $return=false){
+    if($return) return $obj.replace(/,/ig,' , ');
+    else console.log($obj.replace(/,/ig,' , '));
+},
   
 /*********************************************************************
 Cookie Functions

@@ -30,6 +30,11 @@ myArray = [{id:1,name:"ahmed"},{id:2},{id:3},{id:3},{id:1}];
 simple_array = ["one","two","three","four"];
 	
 
+	console.log("rand_int" 										, jsHelpers.rand_int(1,100));//min, max
+	console.log("rand_str" 										, jsHelpers.rand_str(4)); //length
+
+
+
 	console.log("in_array" 										, jsHelpers.in_array(1,[1,2,3]));
 	console.log("in_adv_array" 						, jsHelpers.in_adv_array({id:1},myArray,'id'));
 
@@ -100,6 +105,14 @@ console.log("----------------------------------------------------");
 
 	document.addEventListener('keydown', evt=>console.log(jsHelpers.keyStrokeName(evt)), false);
 
+
+	document.addEventListener('view_json', jsHelpers.view_json(myArray) );
+
+	$csv_text = `
+id,name,age
+1,ahmed,25
+`;
+	document.addEventListener('view_json', jsHelpers.view_csv($csv_text) );
 
 
 	// let constrains = {

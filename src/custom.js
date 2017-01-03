@@ -38,3 +38,23 @@
         textFile = window.URL.createObjectURL(data);
         return textFile;
     },
+
+
+
+
+    rand_int(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    },
+    rand_str(length=4){
+        let output='';
+        var S4 = function() {return (((1+Math.random())*0x10)|0).toString(16).substring(1); };
+        for(let i=0;i<length;i++){ output+= S4() }
+        return output;
+    },
+
+
+
+
+

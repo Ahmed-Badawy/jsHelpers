@@ -16,6 +16,7 @@ let jsHelpers = {
   @@include('./dom selectors.js')
   @@include('./device & browser detection.js')
   @@include('./dom selectors.js')
+  @@include('./converters.js')
   @@include('./cookie related.js')
 
 
