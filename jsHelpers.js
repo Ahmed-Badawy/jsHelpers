@@ -72,7 +72,6 @@ let jsHelpers = {
     },
 
 
-
     get_where(array, attr, attr_value, first_result=false) {
         let placeholder_array = [];
         placeholder_array = array.slice().filter(item=>item[attr]==attr_value);
