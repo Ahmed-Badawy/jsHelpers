@@ -65,11 +65,19 @@ let jsHelpers = {
     },
 
 
+
     array_list_adv(array, attribute, array_uniq=true) {
         let placeholder_array = [];
         placeholder_array = array.map(value=>value[attribute]);
         return (array_uniq) ? this.array_uniq(placeholder_array) : placeholder_array;
     },
+    lists(array, attribute, array_uniq=true){ // other name for the array_list_adv()
+        let placeholder_array = [];
+        placeholder_array = array.map(value=>value[attribute]);
+        return (array_uniq) ? this.array_uniq(placeholder_array) : placeholder_array;
+    },
+
+
 
 
     get_where(array, attr, attr_value, first_result=false) {
