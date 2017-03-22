@@ -101,7 +101,22 @@ let jsHelpers = {
         array = array.filter(item=>item[attribute]!=elm[attribute]);
         return array;
     },
-      uc_words(str){
+  
+    dd(var1,label){
+        if(label) console.log(`------------------label--------------------`);
+        let var2 = JSON.parse(JSON.stringify(var1)); 
+        console.log(var2);
+        if(label) console.log(`-------------------------------------------`);
+        return var2; 
+    },
+    clone_obj(obj){
+        return JSON.parse(JSON.stringify(obj));
+    },
+    obj_equal(obj1,obj2){
+        return JSON.stringify(obj1) === JSON.stringify(obj2);
+    },
+
+    uc_words(str){
         return (str + '').replace(/^([a-z\u00E0-\u00FC])|\s+([a-z\u00E0-\u00FC])/g, $1=>$1.toUpperCase())
     },
 
