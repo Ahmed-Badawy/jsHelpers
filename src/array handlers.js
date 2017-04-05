@@ -78,7 +78,6 @@
     },
 
 
-
     array_remove(elm,array){
         array = array.slice();
         var index = array.indexOf(elm);
@@ -91,3 +90,13 @@
         array = array.filter(item=>item[attribute]!=elm[attribute]);
         return array;
     },
+
+
+    get_attrs(obj, array_of_attrs){
+        var return_obj = {};
+        for(key in obj){ if(this.in_array(key,array_of_attrs)) return_obj[key] = obj[key]; }
+        return return_obj;
+    },
+
+
+
