@@ -99,4 +99,14 @@
     },
 
 
+    reorder_array(from_index, to_index, from_array, to_array=false){
+        let removed_elm = from_array.splice(from_index,1);
+        (to_array==false) ? from_array.splice(to_index, 0, removed_elm[0]) : to_array.splice(to_index, 0, removed_elm[0]); 
+        return { from_array:from_array , to_array:to_array };
+    },
+
+
+
+
+
 

@@ -28,3 +28,10 @@
         new_array = new_array.slice(pagi_offset,pagi_offset + pagi_limit);
         return new_array; 
     },
+
+
+    wc_words(str){
+        str = str.replace(/_|-/ig,' ');
+        str = str.charAt(0).toUpperCase() + str.slice(1);
+        return str;
+    },

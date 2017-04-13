@@ -25,6 +25,7 @@
 <script type="text/javascript">
 
 
+console.log( jsHelpers.wc_words("this_is_my_var") );
 console.log( jsHelpers.get_attrs( {name:"ali",age:22}, ['name'] ));
 
 
@@ -33,6 +34,9 @@ console.log( jsHelpers.get_attrs( {name:"ali",age:22}, ['name'] ));
 myArray = [{id:1,name:"ahmed"},{id:2},{id:3},{id:3},{id:1}];
 simple_array = ["one","two","three","four"];
 	
+
+console.log("reorder_array", jsHelpers.reorder_array(0,2,simple_array) );
+
 
 	console.log("rand_int" 										, jsHelpers.rand_int(1,100));//min, max
 	console.log("rand_str" 										, jsHelpers.rand_str(4)); //length

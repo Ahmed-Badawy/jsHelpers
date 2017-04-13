@@ -109,6 +109,16 @@ let jsHelpers = {
     },
 
 
+    reorder_array(from_index, to_index, from_array, to_array=false){
+        let removed_elm = from_array.splice(from_index,1);
+        (to_array==false) ? from_array.splice(to_index, 0, removed_elm[0]) : to_array.splice(to_index, 0, removed_elm[0]); 
+        return { from_array:from_array , to_array:to_array };
+    },
+
+
+
+
+
 
 
   
@@ -311,6 +321,13 @@ Time Ago
         console.log(new_array.length, pagi_limit, pagi_offset, this.pages_count);
         new_array = new_array.slice(pagi_offset,pagi_offset + pagi_limit);
         return new_array; 
+    },
+
+
+    wc_words(str){
+        str = str.replace(/_|-/ig,' ');
+        str = str.charAt(0).toUpperCase() + str.slice(1);
+        return str;
     },
   
 
