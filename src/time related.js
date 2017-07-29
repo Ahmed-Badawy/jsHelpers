@@ -2,7 +2,7 @@
 Time Ago
 --------------------------------------------------------------*/
 /*jsHelpers.timeAgo("2011-12-17T09:24:17Z",'ar')*/
-    timeAgo(myvar,template_lang='en'){
+    timeAgo(myvar,template_lang='en',custom_template=false){
         var templates_en = {
             prefix: "",
             suffix: " ago",
@@ -35,6 +35,7 @@ Time Ago
         };        
         if(template_lang=='en') templates = templates_en;
         if(template_lang=='ar') templates = templates_ar;
+        if(custom_template) template = custom_template;
         var template = (t, n)=>templates[t] && templates[t].replace(/%d/i, Math.abs(Math.round(n)));
         var timer = function(time) {
             if (!time)

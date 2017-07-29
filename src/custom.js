@@ -1,6 +1,6 @@
 
     dd(var1,label){
-        if(label) console.log(`------------------label--------------------`);
+        if(label) console.log(`------------------${label}--------------------`);
         let var2 = JSON.parse(JSON.stringify(var1)); 
         console.log(var2);
         if(label) console.log(`-------------------------------------------`);

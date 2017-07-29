@@ -24,7 +24,6 @@
 <script type="text/javascript" src='jsHelpers.js'></script>
 <script type="text/javascript">
 
-
 console.log( jsHelpers.wc_words("this_is_my_var") );
 console.log( jsHelpers.get_attrs( {name:"ali",age:22}, ['name'] ));
 
@@ -80,7 +79,7 @@ console.log("----------------------------------------------------");
 
 
 //notify user
-	jsHelpers.notifyUser("My Header","somethign went wrong, please check what is the error");
+	// jsHelpers.notifyUser("My Header","somethign went wrong, please check what is the error");
 //download text generated file
 	jsHelpers.get("#download_file").href = jsHelpers.makeTextFile("Hello World",'text/json');
 
@@ -123,15 +122,8 @@ id,name,age
 	document.addEventListener('view_json', jsHelpers.view_csv($csv_text) );
 
 
-	// let constrains = {
-	// 	username: { main:["required"], len_max:10, len_min:3, len_is:6 },
-	// 	email: { main:['required','email'] },
-	// 	size: { inside: ['small','medium','large'] },
-	// 	password: { main:['required'], len_is:6 },
-	// 	password_conf : { main:['required'], same: 'password' },
-	// 	special: { match:(/main/ig) }
-	// }
-	// validate();
+
+
 
 
 

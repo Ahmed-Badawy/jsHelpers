@@ -121,9 +121,38 @@ let jsHelpers = {
 
 
 
+  /*--------------------------------------------------------------
+validator
+--------------------------------------------------------------*/
+    validate(field,against){
+
+       	against_array = against.split("|");
+       	for(let i of against_array){
+       		console.log(i);
+       	}
+
+    },      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
     dd(var1,label){
-        if(label) console.log(`------------------label--------------------`);
+        if(label) console.log(`------------------${label}--------------------`);
         let var2 = JSON.parse(JSON.stringify(var1)); 
         console.log(var2);
         if(label) console.log(`-------------------------------------------`);
@@ -441,6 +470,33 @@ view_csv($obj, $return=false){
     else console.log($obj.replace(/,/ig,' , '));
 },
   
+    generate_months() {
+    		var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+    		return monthNames;
+    },
+
+    generate_days_of_month(){
+    	var days_of_month = [
+    				{num: 1, name:"1 st"}, {num: 2, name:"2 nd"}, {num: 3, name:"3 rd"}
+    	];
+    	for(let i = 4; i<=30; i++){ days_of_month.push({num: i, name:i+" th"}); }
+    	return days_of_month;
+    },
+
+    generate_days_of_week(){
+        var week_days = [
+			  { name: "sunday" 						,     num: 0 },
+			  { name: "monday" 						,     num: 1 },
+			  { name: "tuesday" 					,     num: 2 },
+			  { name: "wednesday" 			,     num: 3 },
+			  { name: "thursday" 				,     num: 4 },
+			  { name: "friday" 						,     num: 5 },
+			  { name: "saturday" 				,     num: 6 }
+		];
+		return week_days;
+    },
+
+  
 /*********************************************************************
 Cookie Functions
 **********************************************************************/
@@ -471,7 +527,6 @@ Cookie Functions
         return false;
     },
 
-
     delete_cookie(cname){ //if all: delete all cookies
         if(cname!='all') document.cookie = cname+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
         else{
@@ -484,15 +539,5 @@ Cookie Functions
 
 
 
-
-
-
 }
-
-
-
-
-
-
-
 
