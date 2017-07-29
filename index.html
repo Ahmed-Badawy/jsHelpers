@@ -83,11 +83,15 @@ console.log("----------------------------------------------------");
 //download text generated file
 	jsHelpers.get("#download_file").href = jsHelpers.makeTextFile("Hello World",'text/json');
 
+
 //js cookie
+console.group("cookies");
 	jsHelpers.set_cookie('username','Ahmed Badawy');
 	jsHelpers.set_cookie('age','22');
-	console.log("Cookies Log", jsHelpers.get_cookie('username'));
-
+	console.log( jsHelpers.get_cookie('username') );
+	// console.log("Cookies Log", jsHelpers.get_cookie('username'));
+	// console.log("get all cookies:", jsHelpers.get_cookie('all'))
+console.groupEnd("cookies");
 
 
 
